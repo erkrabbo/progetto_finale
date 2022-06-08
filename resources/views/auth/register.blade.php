@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="form-group mb-3 row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -25,7 +25,35 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group mb-3 row">
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+
+                                @error('surname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <label for="birth" class="col-md-4 col-form-label text-md-right">{{ __('birth') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="birth" type="date" class="form-control @error('birth') is-invalid @enderror" name="birth" value="{{ old('birth') }}" required autocomplete="birth" autofocus>
+
+                                @error('birth')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -39,7 +67,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group mb-3 row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -53,7 +81,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group mb-3 row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">

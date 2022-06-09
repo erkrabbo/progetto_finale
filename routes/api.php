@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::apiResource('houses', 'Api\HouseController')
-->middleware('auth:sanctum');
+Route::get('/houses', 'Api\HouseController@index');
+Route::middleware('auth:sanctum')->resource('houses', 'Api\HouseController')->except('index', 'show');
 
 
 

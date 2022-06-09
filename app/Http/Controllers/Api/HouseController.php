@@ -15,7 +15,12 @@ class HouseController extends Controller
      */
     public function index()
     {
-        
+        $houses = House::all();
+
+        return response()->json([
+            'success'    => true,
+            'response'  => $houses,
+        ]);
     }
 
     /**

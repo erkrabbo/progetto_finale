@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('houses', 'HouseController');
+Route::middleware('auth')->resource('houses', 'HouseController');
 
 // Route::get('/', function () {
 //     return view('guests.home');

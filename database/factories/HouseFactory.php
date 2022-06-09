@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(House::class, function (Faker $faker) {
     return [
+        'user_id' => $faker->numberBetween(1, 10),
         'title' => $faker->sentence,
         'poster' => $faker->imageUrl(640, 480),
         'num_of_rooms' => $faker->numberBetween(1, 10),

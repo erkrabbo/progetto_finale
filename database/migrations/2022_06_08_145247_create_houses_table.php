@@ -15,6 +15,7 @@ class CreateHousesTable extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('poster');
             $table->string('num_of_rooms');

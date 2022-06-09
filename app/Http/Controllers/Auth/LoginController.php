@@ -14,27 +14,26 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    public function login(Request $request) {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-            'device_name' => 'required',
-        ]);
-        $user = User::where('email', $request->email)->first();
+    // public function login(Request $request) {
+    //     $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+    //     $user = User::where('email', $request->email)->first();
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
-            ]);
-        }
+    //     if (! $user || ! Hash::check($request->password, $user->password)) {
+    //         throw ValidationException::withMessages([
+    //             'email' => ['The provided credentials are incorrect.'],
+    //         ]);
+    //     }
 
-        return $user->createToken($request->device_name)->plainTextToken;
-    }
+    //     return $user->createToken($request->device_name)->plainTextToken;
+    // }
 
 
-    public function logout() {
-        Auth::logout();
-    }
+    // public function logout() {
+    //     Auth::logout();
+    // }
 
     // public function showLoginForm()
     // {
@@ -54,20 +53,20 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    // /**
-    //  * Where to redirect users after login.
-    //  *
-    //  * @var string
-    //  */
-    // protected $redirectTo = RouteServiceProvider::HOME;
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
 
-    // /**
-    //  * Create a new controller instance.
-    //  *
-    //  * @return void
-    //  */
-    // public function __construct()
-    // {
-    //     $this->middleware('guest')->except('logout');
-    // }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 }

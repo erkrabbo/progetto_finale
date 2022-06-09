@@ -5152,6 +5152,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -5166,11 +5167,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
-      Axios.post('/login', {
-        email: this.userMail,
-        password: this.userPassword
-      }).then(function (response) {
-        console.log(response);
+      var _this = this;
+
+      Axios.get('/sanctum/csrf-cookie').then(function (response) {
+        Axios.post('/login', {
+          email: _this.userMail,
+          password: _this.userPassword
+        }).then(function (response) {
+          console.log(response);
+        });
       });
     }
   }
@@ -27933,6 +27938,7 @@ var render = function () {
           on: {
             submit: function ($event) {
               $event.preventDefault()
+              return _vm.login()
             },
           },
         },

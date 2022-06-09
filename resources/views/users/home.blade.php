@@ -2,7 +2,7 @@
 
 @section('content')
 @auth
-CIAO SONO LA HOME registrata
+<div id="app"></div>
 @else
 CIAO SONO LA HOME NON REGISTRATA
 @endauth

@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'auth_user' => Auth::user()
+    ]);
 });
-
 Auth::routes();
 Route::middleware('auth')->resource('houses', 'HouseController');
 

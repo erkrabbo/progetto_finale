@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('users.home');
+    return view('welcome');
 });
 
 Auth::routes();
+Route::resource('houses', 'HouseController');
 
 // Route::get('/', function () {
 //     return view('guests.home');

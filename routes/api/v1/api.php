@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/houses', 'Api\HouseController@index');
-Route::middleware('auth:sanctum')->resource('houses', 'Api\HouseController')->except('index', 'show');
+// Route::middleware('auth:sanctum')->resource('houses', 'Api\HouseController')->except('index', 'show');
 
 
 
